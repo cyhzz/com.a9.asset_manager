@@ -117,6 +117,10 @@ namespace Com.A9.AssetManager
                             handle = handle
                         };
                         dic.Add(location.PrimaryKey, nw_req);
+                        if (AssetType.GetAssetType(location.PrimaryKey) == typeof(AudioClip))
+                        {
+                            Debug.Log($"Load succ {location.PrimaryKey} {nw_req.GetResult<AudioClip>().name}");
+                        }
                     }
                 };
                 loads.Add(handle);
