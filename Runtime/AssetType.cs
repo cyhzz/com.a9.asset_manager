@@ -24,6 +24,10 @@ namespace Com.A9.AssetManager
             {
                 return typeof(TextAsset);
             }
+            else if (AssetType.IsMaterialFile(assetName))
+            {
+                return typeof(Material);
+            }
             return typeof(UnityEngine.Object);
         }
 
@@ -44,6 +48,11 @@ namespace Com.A9.AssetManager
             return path.EndsWith(".ogg", StringComparison.OrdinalIgnoreCase)
                    || path.EndsWith(".mp3", StringComparison.OrdinalIgnoreCase)
                    || path.EndsWith(".wav", StringComparison.OrdinalIgnoreCase);
+        }
+
+        public static bool IsMaterialFile(string path)
+        {
+            return path.EndsWith(".mat", StringComparison.OrdinalIgnoreCase);
         }
 
         public static bool IsTextureFile(string path)

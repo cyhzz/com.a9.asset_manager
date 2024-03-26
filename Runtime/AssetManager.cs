@@ -92,6 +92,10 @@ namespace Com.A9.AssetManager
                     handle = Addressables.LoadAssetAsync<GameObject>(location);
                 else if (AssetType.GetAssetType(location.PrimaryKey) == typeof(Sprite))
                     handle = Addressables.LoadAssetAsync<Sprite>(location.PrimaryKey);
+                else if (AssetType.GetAssetType(location.PrimaryKey) == typeof(AudioClip))
+                    handle = Addressables.LoadAssetAsync<AudioClip>(location.PrimaryKey);
+                else if (AssetType.GetAssetType(location.PrimaryKey) == typeof(Material))
+                    handle = Addressables.LoadAssetAsync<Material>(location.PrimaryKey);
 
                 // handle.Completed+=obj=>
                 handle.Completed += obj =>
