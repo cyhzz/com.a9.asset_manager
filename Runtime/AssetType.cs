@@ -64,7 +64,8 @@ namespace Com.A9.AssetManager
         {
             return path.EndsWith(".png", StringComparison.OrdinalIgnoreCase)
                    || path.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase)
-                   || path.EndsWith(".tga", StringComparison.OrdinalIgnoreCase);
+                   || path.EndsWith(".tga", StringComparison.OrdinalIgnoreCase)
+                   || path.EndsWith(".psd", StringComparison.OrdinalIgnoreCase);
         }
 
         public static bool IsSpriteSheetFile(string path)
