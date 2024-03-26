@@ -90,6 +90,8 @@ namespace Com.A9.AssetManager
                 AsyncOperationHandle handle = new AsyncOperationHandle();
                 if (AssetType.GetAssetType(location.PrimaryKey) == typeof(GameObject))
                     handle = Addressables.LoadAssetAsync<GameObject>(location);
+                else if (AssetType.GetAssetType(location.PrimaryKey) == typeof(IList<Sprite>))
+                    handle = Addressables.LoadAssetAsync<IList<Sprite>>(location.PrimaryKey);
                 else if (AssetType.GetAssetType(location.PrimaryKey) == typeof(Sprite))
                     handle = Addressables.LoadAssetAsync<Sprite>(location.PrimaryKey);
                 else if (AssetType.GetAssetType(location.PrimaryKey) == typeof(AudioClip))

@@ -12,6 +12,10 @@ namespace Com.A9.AssetManager
             {
                 return typeof(GameObject);
             }
+            else if (AssetType.IsSpriteSheetFile(assetName))
+            {
+                return typeof(IList<Sprite>);
+            }
             else if (AssetType.IsTextureFile(assetName))
             {
                 return typeof(Sprite);
@@ -28,6 +32,7 @@ namespace Com.A9.AssetManager
             {
                 return typeof(Material);
             }
+
             return typeof(UnityEngine.Object);
         }
 
@@ -60,6 +65,11 @@ namespace Com.A9.AssetManager
             return path.EndsWith(".png", StringComparison.OrdinalIgnoreCase)
                    || path.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase)
                    || path.EndsWith(".tga", StringComparison.OrdinalIgnoreCase);
+        }
+
+        public static bool IsSpriteSheetFile(string path)
+        {
+            return IsTextFile(path) && path.Contains("sheet");
         }
 
         public static bool IsShaderFile(string path)
