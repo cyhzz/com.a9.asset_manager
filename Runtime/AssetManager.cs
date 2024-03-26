@@ -13,6 +13,7 @@ namespace Com.A9.AssetManager
     public class ReadRequest
     {
         public string path;
+        public string name;
         public AsyncOperationHandle handle;
 
         public T GetResult<T>()
@@ -30,6 +31,13 @@ namespace Com.A9.AssetManager
     {
         public Dictionary<string, ReadRequest> dic = new Dictionary<string, ReadRequest>();
 
+        public string GetName(string path)
+        {
+            string[] parse = path.Split('/');
+            string[] parse_2 = parse[parse.Length - 1].Split('.');
+            return parse_2[0];
+        }
+
         public ReadRequest Load<T>(string path, Action OnAllComplete = null)
         {
             if (dic.ContainsKey(path))
@@ -46,7 +54,7 @@ namespace Com.A9.AssetManager
                     return req;
                 }
             }
-            var re = new ReadRequest() { path = path };
+            var re = new ReadRequest() { path = path, name = GetName(path) };
             dic.Add(path, re);
             StartCoroutine(Load_(new List<string>() { path }));
             return re;
@@ -114,7 +122,8 @@ namespace Com.A9.AssetManager
                         var nw_req = new ReadRequest()
                         {
                             path = location.PrimaryKey,
-                            handle = handle
+                            handle = handle,
+                            name = GetName(location.PrimaryKey)
                         };
                         dic.Add(location.PrimaryKey, nw_req);
                         if (AssetType.GetAssetType(location.PrimaryKey) == typeof(AudioClip))
@@ -134,9 +143,10 @@ namespace Com.A9.AssetManager
             foreach (var item in dic)
             {
                 var req = item.Value;
-                if (req.handle.Result != null && ((UnityEngine.Object)req.handle.Result).name == str)
+                if (req.handle.Result != null)
                 {
-                    return (T)req.handle.Result;
+                    if (item.Value.name == str)
+                        return (T)req.handle.Result;
                 }
             }
             return null;
