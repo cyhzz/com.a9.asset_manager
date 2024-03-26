@@ -1,0 +1,17 @@
+{
+  "name": "com.a9.asset_manager",
+  "version": "1.0.1",
+  "description": "AssetManager",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cyhzz/com.a9.asset_manager.git"
+  },
+  "author": "A9019",
+  "keywords": [
+    "git",
+    "editor"
+  ],
+  "displayName": "A9 AssetManager",
+  "unity": "2020.3"
+}
