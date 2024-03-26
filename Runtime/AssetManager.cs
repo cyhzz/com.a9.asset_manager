@@ -87,6 +87,9 @@ namespace Com.A9.AssetManager
             var loads = new List<AsyncOperationHandle>(locations.Result.Count);
             foreach (var location in locations.Result)
             {
+                Debug.Log(location.PrimaryKey);
+                Debug.Log(AssetType.GetAssetType(location.PrimaryKey));
+
                 AsyncOperationHandle handle = new AsyncOperationHandle();
                 if (AssetType.GetAssetType(location.PrimaryKey) == typeof(GameObject))
                     handle = Addressables.LoadAssetAsync<GameObject>(location);
