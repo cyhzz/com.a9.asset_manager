@@ -69,7 +69,7 @@ namespace Com.A9.AssetManager
 
         public static bool IsSpriteSheetFile(string path)
         {
-            return IsTextFile(path) && path.Contains("sheet");
+            return IsTextureFile(path) && path.Contains("sheet");
         }
 
         public static bool IsShaderFile(string path)
