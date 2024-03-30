@@ -125,7 +125,7 @@ namespace Com.A9.AssetManager
                         dic.Add(location.PrimaryKey, nw_req);
                         if (AssetType.GetAssetType(location.PrimaryKey) == typeof(AudioClip))
                         {
-                            Debug.Log($"Load succ {location.PrimaryKey} {nw_req.GetResult<AudioClip>().name}");
+                            // Debug.Log($"Load succ {location.PrimaryKey} {nw_req.GetResult<AudioClip>().name}");
                         }
                     }
                 };
