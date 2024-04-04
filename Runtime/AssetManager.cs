@@ -155,6 +155,10 @@ namespace Com.A9.AssetManager
             {
                 return;
             }
+            if (dic[path].handle.IsValid() == false)
+            {
+                return;
+            }
             Addressables.Release(dic[path].handle);
         }
     }
