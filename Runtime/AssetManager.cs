@@ -160,6 +160,7 @@ namespace Com.A9.AssetManager
                 return;
             }
             Addressables.Release(dic[path].handle);
+            dic.Remove(path);
         }
     }
 
